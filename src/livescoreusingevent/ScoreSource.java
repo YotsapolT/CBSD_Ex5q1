@@ -12,14 +12,14 @@ import java.util.ArrayList;
  */
 public class ScoreSource {
     private String score;
-    private ArrayList<Subscriber> listeners;
+    private ArrayList<ScoreListener> listeners;
     public ScoreSource(){
         listeners = new ArrayList<>();
     }
     
     public void setScoreLine(String score){
         this.score = score;
-        fireMySubscriber(new ScoreEvent(this, this.score));
+        fireScoreEvent(new ScoreEvent(this, this.score));
     }
     
     public String getScoreLine(){
@@ -34,7 +34,7 @@ public class ScoreSource {
         listeners.remove(s);
     }
     
-    public void fireMySubscriber(ScoreEvent scoreEvent){
+    public void fireScoreEvent(ScoreEvent scoreEvent){
         listeners.forEach(listener -> {
             listener.scoreChange(scoreEvent);
         });
