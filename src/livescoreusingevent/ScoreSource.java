@@ -26,11 +26,11 @@ public class ScoreSource {
         return score;
     }
 
-    public void addSubscriber(Subscriber s){
+    public void addSubscriber(ScoreListener s){
         listeners.add(s);
     }
     
-    public void removeSubcriber(Subscriber s){
+    public void removeSubcriber(ScoreListener s){
         listeners.remove(s);
     }
     
